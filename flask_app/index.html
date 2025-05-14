@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cryptocurrency Predictor</title>
+</head>
+<body>
+    <h2>Cryptocurrency Prediction</h2>
+    <form action="/predict" method="post">
+        <label>Moving Average:</label><br>
+        <input type="text" name="moving_average"><br><br>
+
+        <label>Volatility:</label><br>
+        <input type="text" name="volatility"><br><br>
+
+        <label>Liquidity Ratio:</label><br>
+        <input type="text" name="liquidity_ratio"><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
+
