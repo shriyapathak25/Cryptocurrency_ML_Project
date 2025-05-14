@@ -4,7 +4,7 @@ import numpy as np
 import os
 app = Flask(__name__)
 
-model_path = os.path.join(os.path.dirname('C:\\Users\\shriya pathak\\OneDrive\\Desktop\\pw project\\flask_app\\app.py'), "C:\\Users\\shriya pathak\\OneDrive\\Desktop\\pw project\\flask_app\\linear_regression_model.pkl")
+model_path = os.path.join(os.path.dirname(_file_), "linear_regression_model.pkl")
 model = joblib.load(model_path)
 
 @app.route('/')
