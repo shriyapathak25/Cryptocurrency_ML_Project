@@ -13,7 +13,6 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get form data and convert to float
     try:
         print(request.form)  # debug what you're actually receiving
 
@@ -22,18 +21,13 @@ def predict():
         volatility = float(request.form['volatility'])
         liquidity_ratio = float(request.form['liquidity_ratio'])
 
-        # Create a NumPy array with the inputs
         features = np.array([[moving_avg, volatility, liquidity_ratio]])
-
-        # Predict using the loaded model
         prediction = model.predict(features)[0]
 
-        # Send result to the HTML template
         return render_template('index.html',
                                prediction_text=f"Predicted 24h Liquidity Volume: {prediction:.2f}")
     except Exception as e:
-        print("Error:", e)  # helpful for debugging in logs
-        return render_template('index.html', prediction_text=" Invalid input. Please enter numbers.")
+        print("Error:", e)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
