@@ -27,7 +27,8 @@ def predict():
         return render_template('index.html',
                                prediction_text=f"Predicted 24h Liquidity Volume: {prediction:.2f}")
     except Exception as e:
-        print("Error:", e)
+        print("Error:", e)  # This will show in the Render logs
+        return render_template('index.html', prediction_text=" Invalid input. Please enter numbers.")
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
